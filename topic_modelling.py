@@ -49,7 +49,7 @@ def determine_topics(cfg):
     print('creating lda_inf ...')
     lda_inf = metapy.topics.LDACollapsedVB(dset, num_topics=2, alpha=1.0, beta=0.01)
     print('1000 iterations of lda_inf ...')
-    lda_inf.run(num_iters=1000)
+    lda_inf.run(num_iters=10)
 
     # The above ran the CVB0 algorithm for 1000 iterations, or until an algorithm-specific convergence
     # criterion was met. Now let's save the current estimate for our topics and topic proportions.
@@ -70,10 +70,10 @@ def determine_topics(cfg):
     # format by using the vocabulary contained in our ForwardIndex to map the term ids to strings.
 
     print('map term id 0 to strings ...')
-    [(fidx.term_text(pr[0]), pr[1]) for pr in model.top_k(tid=0)]
+    print([(fidx.term_text(pr[0]), pr[1]) for pr in model.top_k(tid=0)])
 
     print('map term id 1 to strings ...')
-    [(fidx.term_text(pr[0]), pr[1]) for pr in model.top_k(tid=1)]
+    print([(fidx.term_text(pr[0]), pr[1]) for pr in model.top_k(tid=1)])
 
     # We can pretty clearly see that this particular dataset was about two major issues: smoking in public
     # and part time jobs for students. This dataset is actually a collection of essays
