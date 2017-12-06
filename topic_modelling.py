@@ -92,17 +92,17 @@ def determine_topics(cfg):
     scorer = metapy.topics.BLTermScorer(model)
 
     print('build fidx using BL Term Scorer, topic 0 ...')
-    [(fidx.term_text(pr[0]), pr[1]) for pr in model.top_k(tid=0, scorer=scorer)]
+    print([(fidx.term_text(pr[0]), pr[1]) for pr in model.top_k(tid=0, scorer=scorer)])
 
     print('build fidx using BL Term Scorer, topic 1 ...')
-    [(fidx.term_text(pr[0]), pr[1]) for pr in model.top_k(tid=1, scorer=scorer)]
+    print([(fidx.term_text(pr[0]), pr[1]) for pr in model.top_k(tid=1, scorer=scorer)])
 
     # Here we can see that the uninformative word stem "think" was down-weighted from the word list
     # from each topic, since it had relatively high probability in either topic.
 
     # We can also see the inferred topic distribution for each document.
-    model.topic_distribution(0)
-    model.topic_distribution(900)
+    print(model.topic_distribution(0))
+    print(model.topic_distribution(900))
 
 
 if __name__ == '__main__':
