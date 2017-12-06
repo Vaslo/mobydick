@@ -1,0 +1,12 @@
+prefix = "."
+dataset = "Data"
+corpus = "line.toml"
+index = "moby-idx"
+# uninvert = true # create the forward index by un-inverting the
+                # inverted index; can save some processing time
+                # when using both indexesstop-words = "moby_dick_stopwords.txt"
+
+[[analyzers]]
+method = "ngram-word"
+ngram = 1
+filter = "default-unigram-chain"

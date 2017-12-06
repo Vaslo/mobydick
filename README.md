@@ -1,1 +1,1 @@
-# mobydick
+# TextMiningProj
